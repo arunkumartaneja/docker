@@ -1,3 +1,4 @@
+## Usefull shell commands
 
 - ` ls —> List directory contents `
 - ` echo —> Prints text to the terminal window `
