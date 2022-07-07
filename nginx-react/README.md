@@ -1,3 +1,12 @@
+
+# Docker 
+- Use images with specific versions. it is usefull to avoid version specific errors
+- Use small size images. It will reduce both build time and build size
+- use docker catch. Add least changing steps/layer first in docker file. it will reduce build time
+- Use dockerignore file to avoide copying the unneccesory files to docker. It will reduce build time
+- Use multi stage build to reduce build size. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
