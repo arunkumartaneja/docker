@@ -1,5 +1,9 @@
 ## Usefull shell commands
 
+## print list of all the files and folders (including children) of a folder.
+- Print - find "$(pwd)"
+- Save in a file - find "$(pwd)" > listOfFiles.txt
+
 - ` ls —> List directory contents `
 - ` echo —> Prints text to the terminal window `
 - ` touch —> Creates a file `
