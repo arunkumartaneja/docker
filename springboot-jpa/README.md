@@ -1,1 +1,39 @@
-## Spring Boot JPA with Docker
+# Spring Boot JPA with Docker  
+
+
+## Without Docker Compose
+
+### Network
+`sudo docker network create my-net`
+
+
+### Postgres DB
+```
+sudo docker run -d \
+	-e POSTGRES_USER=user -e POSTGRES_PASSWORD=mypass \
+	--name pg-db -p 5432:5432 \
+	--network=my-net \
+	--restart=always postgres:alpine
+```
+
+### PGadmin
+```
+sudo docker run -p 8080:80 \
+    -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
+    -e 'PGADMIN_DEFAULT_PASSWORD=mypass' \
+    --name pg-admin \
+    --network=my-net \
+    --restart=always \
+    -d dpage/pgadmin4
+ ```
+ 
+### Java App
+- #### Image
+	 ```
+ 		sudo docker build -t java-app:latest .
+ 	```
+ - #### Container
+ 	```
+ 		sudo docker run -d -p 8081:8081 --name backend java-app:latest
+	```
+
