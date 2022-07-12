@@ -34,6 +34,6 @@ sudo docker run -p 8080:80 \
  	```
  - #### Container
  	```
- 		sudo docker run -d -p 8081:8081 --name backend java-app:latest
+ 		sudo docker run -d -p 8081:8081 --name backend --network=my-net java-app
 	```
 
