@@ -1,0 +1,44 @@
+version: '3'
+services:
+  postgres:
+    container_name: pg-db
+    image: postgres:alpine
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: mypass
+    ports:
+      - "5432:5432"
+    networks:
+      - my-net
+    restart: always
+  pgadmin:
+    container_name: pg-admin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@domain.com
+      PGADMIN_DEFAULT_PASSWORD: mypass
+    ports:
+      - "8080:80"
+    networks:
+      - my-net
+    restart: always
+    depends_on:
+      - postgres
+  springboot:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: java-app:latest
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "8081:8082"
+    networks:
+      - my-net
+    depends_on:
+      - postgres
+networks:
+  my-net:
+    driver: bridge
+

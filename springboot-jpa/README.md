@@ -37,3 +37,14 @@ sudo docker run -p 8080:80 \
  		sudo docker run -d -p 8081:8082 --name backend --network=my-net -e 'SPRING_PROFILES_ACTIVE=docker' java-app
 	```
 
+## Without Docker Compose
+
+### Ceck our build-file for syntax-errors
+``` sudo docker-compose config ```
+
+### Build images, create the defined containers, and start it in one command:
+``` sudo docker-compose up --build -d ```
+
+### stop the containers, remove them from Docker and remove the connected networks from it
+``` sudo docker-compose down ```
+
