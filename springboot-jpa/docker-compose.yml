@@ -6,6 +6,8 @@ services:
     environment:
       POSTGRES_USER: user
       POSTGRES_PASSWORD: mypass
+    volumes:
+      - postgres:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     networks:
@@ -17,6 +19,8 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: user@domain.com
       PGADMIN_DEFAULT_PASSWORD: mypass
+    volumes:
+      - pgadmin:/var/lib/pgadmin
     ports:
       - "8080:80"
     networks:
@@ -41,4 +45,8 @@ services:
 networks:
   my-net:
     driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
 
